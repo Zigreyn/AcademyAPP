@@ -12,9 +12,10 @@
     <color name="background_black">#FF191926</color>
     <color name="light_grey">#88FFFFFF</color>
     <color name="pink">#FF3466</color>
-    <color name="pink_rating_bar">#FF3466</color>
+    <color name="pink_rating_bar">#FF3365</color>
     <color name="gray_rating_bar">#6D6D80</color>
     <color name="white_headers">#ECECEC</color>
     <color name="shadows_color">#80000000</color>
     <color name="white_actors">#D8D8D8</color>
+    <color name="gray_mins">#565665</color>
 </resources>

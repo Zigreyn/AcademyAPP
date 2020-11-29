@@ -2,7 +2,8 @@
     <string name="app_name">Academy first APP</string>
     <string name="button_back_title">Back</string>
     <string name="pg_label">13+</string>
-    <string name="avengers_endgame">Avengers:\nEnd Game</string>
+    <string name="avengers_endgame_n">Avengers:\nEnd Game</string>
+    <string name="avengers_endgame">Avengers: End Game</string>
     <string name="action_adventure_fantasy">Action, Adventure, Fantasy</string>
     <string name="reviews_125">125 reviews</string>
     <string name="storyline">Storyline</string>
@@ -12,4 +13,8 @@
     <string name="evans">Chris Evans</string>
     <string name="ruffalo">Mark Ruffalo</string>
     <string name="hemsworth">Chris Hemsworth</string>
+    <string name="min">137 min</string>
+    <string name="movies_list">Movies list</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
