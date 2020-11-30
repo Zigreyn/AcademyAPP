@@ -46,28 +46,22 @@
             app:layout_constraintTop_toBottomOf="@+id/movie_name_tw" />
 
 
-        <androidx.cardview.widget.CardView
+        <ImageView
             android:id="@+id/poster_iv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/movie_name_tw"
             android:layout_marginStart="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="2dp"
-            app:cardCornerRadius="6dp"
             android:layout_marginBottom="@dimen/margin_8dp"
+            android:contentDescription="@null"
+            android:foreground="@drawable/mask"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/movie_name_tw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:foreground="@drawable/mask"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/end_game_poster" />
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/end_game_poster" />
 
 
         <TextView
