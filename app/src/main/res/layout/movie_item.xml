@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="169dp"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:strokeColor="@color/card_border"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,15 +18,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8dp"
             android:layout_marginTop="@dimen/margin_8dp"
-            android:lineSpacingExtra="4sp"
             android:layout_marginEnd="@dimen/margin_8dp"
             android:ellipsize="end"
+            android:lineSpacingExtra="4sp"
             android:text="@string/avengers_endgame"
             android:textColor="@color/white_headers"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/poster_iv" />
 
         <TextView
@@ -43,19 +45,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movie_name_tw" />
 
-        <ImageView
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/poster_iv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/margin_8dp"
-            android:contentDescription="@null"
-            android:foreground="@drawable/mask"
-            android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/movie_name_tw"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            app:cardCornerRadius="6dp"
+            android:layout_marginBottom="@dimen/margin_8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/end_game_poster" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:foreground="@drawable/mask"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/end_game_poster" />
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/movie_pg_tw"
@@ -175,4 +188,4 @@
             app:layout_constraintStart_toEndOf="@+id/reviews_rb"
             app:layout_constraintTop_toBottomOf="@+id/genre_tv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

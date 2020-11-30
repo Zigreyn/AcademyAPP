@@ -1,24 +1,25 @@
 package ru.zigreyn.academyhm
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 
 
 class MovieListFragment : Fragment() {
 
-    private var movieListClickListener: MovieListClickListener? = null
-    private var items:ArrayList<Movie>? = null
+    private var items: ArrayList<Movie>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            items = it.getParcelableArrayList(ITEMS)
-        }
+        items = arrayListOf(
+            Movie("test1", false),
+            Movie("test2", true),
+            Movie("test3", false)
+        )
     }
 
     override fun onCreateView(
@@ -32,47 +33,23 @@ class MovieListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val item = view.findViewById<View>(R.id.movie1)
 
-
         item.setOnClickListener {
-            movieListClickListener?.onItemClick()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, MovieDetailsFragment.newInstance(items!![0]))
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .addToBackStack(MovieDetailsFragment::class.simpleName)
+                .commit()
         }
 
         val like = item.findViewById<ToggleButton>(R.id.addFavoriteButton)
-        like.isChecked = items!![0].isLiked
 
         like.setOnClickListener {
-            movieListClickListener?.onItemLikeClick(like.isChecked)
+            items!![0].isLiked = like.isChecked
         }
     }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is MovieListClickListener) {
-            movieListClickListener = context
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        movieListClickListener = null
-    }
-
-    interface MovieListClickListener {
-        fun onItemClick()
-
-        fun onItemLikeClick(isLiked: Boolean)
-    }
-
 
     companion object {
         @JvmStatic
-        fun newInstance(items: ArrayList<Movie>) =
-            MovieListFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelableArrayList(ITEMS, items)
-                }
-            }
-
-        private const val ITEMS = "items"
+        fun newInstance() = MovieListFragment()
     }
 }
