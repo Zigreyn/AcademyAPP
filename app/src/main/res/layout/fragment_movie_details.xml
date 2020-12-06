@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="298dp"
             android:contentDescription="@null"
-            android:foreground="@drawable/mask"
+            android:foreground="@drawable/ic_mask_description"
             android:scaleType="centerCrop"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"

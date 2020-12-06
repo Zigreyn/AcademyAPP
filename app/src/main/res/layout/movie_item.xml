@@ -55,7 +55,7 @@
             android:layout_marginEnd="2dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:contentDescription="@null"
-            android:foreground="@drawable/mask"
+            android:foreground="@drawable/ic_mask_item"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/movie_name_tw"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,10 +82,9 @@
         <ToggleButton
             android:id="@+id/addFavoriteButton"
             style="@style/Widget.Button.Toggle"
-            android:layout_width="16dp"
-            android:layout_height="14dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="6dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="8dp"
             android:alpha="0.75"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
