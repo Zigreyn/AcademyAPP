@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="6dp"
     app:cardCornerRadius="8dp"
     app:strokeColor="@color/card_border"
     app:strokeWidth="1dp">
@@ -21,21 +23,22 @@
             android:layout_marginEnd="@dimen/margin_8dp"
             android:ellipsize="end"
             android:lineSpacingExtra="4sp"
-            android:text="@string/avengers_endgame"
+            android:maxLines="1"
             android:textColor="@color/white_headers"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/poster_iv" />
+            app:layout_constraintTop_toBottomOf="@id/poster_iv"
+            tools:text="Avengers: End game" />
 
         <TextView
+            android:id="@+id/duration_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8dp"
             android:layout_marginEnd="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
-            android:text="@string/min"
             android:textAllCaps="true"
             android:textColor="@color/gray_mins"
             android:textSize="8sp"
@@ -43,8 +46,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movie_name_tw" />
-
+            app:layout_constraintTop_toBottomOf="@+id/movie_name_tw"
+            tools:text="137 min" />
 
         <ImageView
             android:id="@+id/poster_iv"
@@ -61,7 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/end_game_poster" />
+            tools:srcCompat="@drawable/poster_end_game" />
 
 
         <TextView
@@ -72,12 +75,12 @@
             android:layout_marginTop="@dimen/margin_8dp"
             android:background="@drawable/age_pg_background"
             android:gravity="center_vertical|center_horizontal"
-            android:text="@string/pg_label"
             android:textColor="@android:color/white"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="13+" />
 
         <ToggleButton
             android:id="@+id/addFavoriteButton"
@@ -97,12 +100,12 @@
             android:layout_marginTop="214dp"
             android:layout_marginEnd="6dp"
             android:fontFamily="sans-serif-light"
-            android:text="@string/action_adventure_fantasy"
             android:textColor="@color/pink"
             android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Action, fantasy" />
 
         <!--        <RatingBar-->
         <!--            android:id="@+id/reviews_rb"-->
@@ -130,19 +133,14 @@
             app:layout_constraintTop_toTopOf="@id/reviews_tv">
 
             <ImageView
+                android:id="@+id/star_1"
                 android:layout_width="@dimen/margin_8dp"
                 android:layout_height="8dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_star_enable" />
 
             <ImageView
-                android:layout_width="@dimen/margin_8dp"
-                android:layout_height="8dp"
-                android:layout_marginStart="2dp"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_star_enable" />
-
-            <ImageView
+                android:id="@+id/star_2"
                 android:layout_width="@dimen/margin_8dp"
                 android:layout_height="8dp"
                 android:layout_marginStart="2dp"
@@ -150,6 +148,7 @@
                 app:srcCompat="@drawable/ic_star_enable" />
 
             <ImageView
+                android:id="@+id/star_3"
                 android:layout_width="@dimen/margin_8dp"
                 android:layout_height="8dp"
                 android:layout_marginStart="2dp"
@@ -157,6 +156,15 @@
                 app:srcCompat="@drawable/ic_star_enable" />
 
             <ImageView
+                android:id="@+id/star_4"
+                android:layout_width="@dimen/margin_8dp"
+                android:layout_height="8dp"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_star_enable" />
+
+            <ImageView
+                android:id="@+id/star_5"
                 android:layout_width="@dimen/margin_8dp"
                 android:layout_height="8dp"
                 android:layout_marginStart="2dp"
@@ -172,13 +180,13 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:lineSpacingExtra="3sp"
-            android:text="@string/reviews_125"
             android:textAllCaps="true"
             android:textColor="@color/gray_rating_bar"
             android:textSize="8sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/poster_iv"
             app:layout_constraintStart_toEndOf="@+id/reviews_rb"
-            app:layout_constraintTop_toBottomOf="@+id/genre_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/genre_tv"
+            tools:text="125 reviews" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
