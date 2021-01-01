@@ -11,17 +11,15 @@ import ru.zigreyn.academyhm.R
 import ru.zigreyn.academyhm.model.Movie
 
 class MovieListAdapter(private val items: List<Movie>, private val clickListener: (Movie) -> Unit) :
-    RecyclerView.Adapter<MovieViewHolder>() {
+        RecyclerView.Adapter<MovieViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-        )
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+            MovieViewHolder(
+                    LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+            )
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+
+    override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(items[position])
@@ -35,34 +33,34 @@ class MovieListAdapter(private val items: List<Movie>, private val clickListener
 
 class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val poster = itemView.findViewById<ImageView>(R.id.poster_iv)
-    private val minAge = itemView.findViewById<TextView>(R.id.movie_pg_tw)
-    private val movieName = itemView.findViewById<TextView>(R.id.movie_name_tw)
-    private val reviewsCount = itemView.findViewById<TextView>(R.id.reviews_tv)
-    private val genre = itemView.findViewById<TextView>(R.id.genre_tv)
-    private val duration = itemView.findViewById<TextView>(R.id.duration_tv)
-    private val like = itemView.findViewById<ToggleButton>(R.id.addFavoriteButton)
+    private val posterView = itemView.findViewById<ImageView>(R.id.poster_iv)
+    private val minAgeView = itemView.findViewById<TextView>(R.id.movie_pg_tw)
+    private val movieNameView = itemView.findViewById<TextView>(R.id.movie_name_tw)
+    private val reviewsCountView = itemView.findViewById<TextView>(R.id.reviews_tv)
+    private val genreView = itemView.findViewById<TextView>(R.id.genre_tv)
+    private val durationView = itemView.findViewById<TextView>(R.id.duration_tv)
+    private val likeView = itemView.findViewById<ToggleButton>(R.id.addFavoriteButton)
 
     private val ratingBar = listOf<ImageView>(
-        itemView.findViewById(R.id.star_1),
-        itemView.findViewById(R.id.star_2),
-        itemView.findViewById(R.id.star_3),
-        itemView.findViewById(R.id.star_4),
-        itemView.findViewById(R.id.star_5)
+            itemView.findViewById(R.id.star_1),
+            itemView.findViewById(R.id.star_2),
+            itemView.findViewById(R.id.star_3),
+            itemView.findViewById(R.id.star_4),
+            itemView.findViewById(R.id.star_5)
     )
 
     fun bind(item: Movie) {
-        poster.setImageResource(item.posterId)
-        minAge.text = item.minAge
-        like.isChecked = item.isLiked
-        movieName.text = item.movieName
-        genre.text = item.genre
+        posterView.setImageResource(item.posterId)
+        minAgeView.text = item.minAge
+        likeView.isChecked = item.isLiked
+        movieNameView.text = item.movieName
+        genreView.text = item.genre
 
         val mins = "${item.duration} min"
-        duration.text = mins
+        durationView.text = mins
 
         val reviews = "${item.reviewsCount} reviews"
-        reviewsCount.text = reviews
+        reviewsCountView.text = reviews
         setRating(item.rating)
     }
 

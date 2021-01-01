@@ -44,27 +44,27 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun bind(item: Movie) {
-        val header = view?.findViewById<ImageView>(R.id.header_iv)
-        header?.setImageResource(item.posterId)
+        val headerView = view?.findViewById<ImageView>(R.id.header_iv)
+        headerView?.setImageResource(item.posterId)
 
-        val minAge = view?.findViewById<TextView>(R.id.movie_pg_tw)
-        minAge?.text = item.minAge
+        val minAgeView = view?.findViewById<TextView>(R.id.movie_pg_tw)
+        minAgeView?.text = item.minAge
 
-        val movieName = view?.findViewById<TextView>(R.id.movie_name_tw)
-        movieName?.text = item.movieName
+        val movieNameView = view?.findViewById<TextView>(R.id.movie_name_tw)
+        movieNameView?.text = item.movieName
 
-        val genre = view?.findViewById<TextView>(R.id.genre_tv)
-        genre?.text = item.genre
+        val genreView = view?.findViewById<TextView>(R.id.genre_tv)
+        genreView?.text = item.genre
 
         val reviewsView = view?.findViewById<TextView>(R.id.reviews_tv)
         val reviews = "${item.reviewsCount} reviews"
         reviewsView?.text = reviews
 
-        val storyline = view?.findViewById<TextView>(R.id.storyline_desc_tv)
-        storyline?.text = item.description
+        val storylineView = view?.findViewById<TextView>(R.id.storyline_desc_tv)
+        storylineView?.text = item.description
 
-        val rating = view?.findViewById<RatingBar>(R.id.reviews_rb)
-        rating?.rating = item.rating.toFloat()
+        val ratingView = view?.findViewById<RatingBar>(R.id.reviews_rb)
+        ratingView?.rating = item.rating.toFloat()
 
     }
 
