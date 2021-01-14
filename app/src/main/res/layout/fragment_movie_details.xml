@@ -23,8 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/header_image" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/back_btn"
@@ -193,120 +192,6 @@
             app:layout_constraintTop_toBottomOf="@id/cast_tv"
             tools:listitem="@layout/actor_item"
             tools:orientation="horizontal" />
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/actor1_iv"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_marginTop="7dp"-->
-        <!--            android:contentDescription="@null"-->
-        <!--            android:scaleType="centerCrop"-->
-        <!--            android:src="@drawable/downey"-->
-        <!--            app:layout_constraintDimensionRatio="1:1"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/actor2_iv"-->
-        <!--            app:layout_constraintHorizontal_bias="0.5"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/cast_tv"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/cast_tv" />-->
-
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/actor2_iv"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_marginStart="8dp"-->
-        <!--            android:contentDescription="@null"-->
-        <!--            android:scaleType="centerCrop"-->
-        <!--            android:src="@drawable/evans"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/actor1_iv"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/actor3_iv"-->
-        <!--            app:layout_constraintHorizontal_bias="0.5"-->
-        <!--            app:layout_constraintStart_toEndOf="@+id/actor1_iv"-->
-        <!--            app:layout_constraintTop_toTopOf="@+id/actor1_iv" />-->
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/actor3_iv"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_marginStart="8dp"-->
-        <!--            android:contentDescription="@null"-->
-        <!--            android:scaleType="centerCrop"-->
-        <!--            android:src="@drawable/ruffalo"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/actor1_iv"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/actor4_iv"-->
-        <!--            app:layout_constraintHorizontal_bias="0.5"-->
-        <!--            app:layout_constraintStart_toEndOf="@+id/actor2_iv"-->
-        <!--            app:layout_constraintTop_toTopOf="@+id/actor1_iv" />-->
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/actor4_iv"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_marginStart="8dp"-->
-        <!--            android:contentDescription="@null"-->
-        <!--            android:scaleType="centerCrop"-->
-        <!--            android:src="@drawable/hemsworth"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@+id/actor1_iv"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/cast_tv"-->
-        <!--            app:layout_constraintHorizontal_bias="0.5"-->
-        <!--            app:layout_constraintStart_toEndOf="@+id/actor3_iv"-->
-        <!--            app:layout_constraintTop_toTopOf="@+id/actor1_iv" />-->
-
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/actor1_name"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="6dp"-->
-        <!--            android:maxLines="2"-->
-        <!--            android:textColor="@color/white_actors"-->
-        <!--            android:textSize="12sp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/actor1_iv"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/actor1_iv"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/actor1_iv"-->
-        <!--            tools:text="Roberts Downey" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/actor4_name"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="6dp"-->
-        <!--            android:maxLines="2"-->
-        <!--            android:textColor="@color/white_actors"-->
-        <!--            android:textSize="12sp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/actor4_iv"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/actor4_iv"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/actor4_iv"-->
-        <!--            tools:text="Chris Hemsworth" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/actor3_name"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="6dp"-->
-        <!--            android:maxLines="2"-->
-        <!--            android:textColor="@color/white_actors"-->
-        <!--            android:textSize="12sp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/actor3_iv"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/actor3_iv"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/actor3_iv"-->
-        <!--            tools:text="Mark Ruffalo" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/actor2_name"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="6dp"-->
-        <!--            android:maxLines="2"-->
-        <!--            android:textColor="@color/white_actors"-->
-        <!--            android:textSize="12sp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/actor2_iv"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/actor2_iv"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/actor2_iv"-->
-        <!--            tools:text="Chris Evans" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

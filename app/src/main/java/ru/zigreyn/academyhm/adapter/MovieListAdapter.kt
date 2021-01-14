@@ -6,17 +6,21 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import ru.zigreyn.academyhm.R
 import ru.zigreyn.academyhm.model.Movie
 
-class MovieListAdapter(private val items: List<Movie>, private val clickListener: (Movie) -> Unit) :
-        RecyclerView.Adapter<MovieViewHolder>() {
+class MovieListAdapter(private var items: List<Movie>, private val clickListener: (Movie) -> Unit) :
+    RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            MovieViewHolder(
-                    LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-            )
+        MovieViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+        )
 
 
     override fun getItemCount() = items.size
@@ -29,6 +33,11 @@ class MovieListAdapter(private val items: List<Movie>, private val clickListener
         }
     }
 
+    fun updateData(newData: List<Movie>) {
+        val diffResult = DiffUtil.calculateDiff(MoviesDiffUtilCallback(items, newData))
+        items = newData
+        diffResult.dispatchUpdatesTo(this)
+    }
 }
 
 class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -42,24 +51,30 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val likeView = itemView.findViewById<ToggleButton>(R.id.addFavoriteButton)
 
     private val ratingBar = listOf<ImageView>(
-            itemView.findViewById(R.id.star_1),
-            itemView.findViewById(R.id.star_2),
-            itemView.findViewById(R.id.star_3),
-            itemView.findViewById(R.id.star_4),
-            itemView.findViewById(R.id.star_5)
+        itemView.findViewById(R.id.star_1),
+        itemView.findViewById(R.id.star_2),
+        itemView.findViewById(R.id.star_3),
+        itemView.findViewById(R.id.star_4),
+        itemView.findViewById(R.id.star_5)
     )
 
     fun bind(item: Movie) {
-        posterView.setImageResource(item.posterId)
-        minAgeView.text = item.minAge
-        likeView.isChecked = item.isLiked
-        movieNameView.text = item.movieName
-        genreView.text = item.genre
+        Glide.with(itemView.context)
+            .load(item.imageUrl)
+            .apply(
+                RequestOptions().placeholder(R.drawable.ic_placeholder)
+            )
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(posterView)
 
-        val mins = "${item.duration} min"
+        minAgeView.text = item.pgAge.toString()
+        likeView.isChecked = item.isLiked
+        movieNameView.text = item.title
+        genreView.text = item.genres.joinToString { it.name }
+        val mins = "${item.runningTime} min"
         durationView.text = mins
 
-        val reviews = "${item.reviewsCount} reviews"
+        val reviews = "${item.reviewCount} reviews"
         reviewsCountView.text = reviews
         setRating(item.rating)
     }
@@ -73,4 +88,20 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             }
         }
     }
+}
+
+private class MoviesDiffUtilCallback(
+    private val oldListMovies: List<Movie>,
+    private val newListMovies: List<Movie>
+) : DiffUtil.Callback() {
+
+    override fun getOldListSize() = oldListMovies.size
+
+    override fun getNewListSize() = newListMovies.size
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldListMovies[oldItemPosition] == newListMovies[newItemPosition]
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldListMovies[oldItemPosition].id == newListMovies[newItemPosition].id
 }
