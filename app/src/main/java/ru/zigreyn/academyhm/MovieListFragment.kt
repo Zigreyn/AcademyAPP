@@ -18,7 +18,7 @@ class MovieListFragment : Fragment() {
 
     private var items: List<Movie>? = listOf()
     private var recycler: RecyclerView? = null
-    private val coroutineScope = CoroutineScope(Job() + Dispatchers.IO)
+    private val coroutineScope = CoroutineScope(Job() + Dispatchers.Default)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

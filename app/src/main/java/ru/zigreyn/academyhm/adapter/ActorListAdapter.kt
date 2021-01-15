@@ -43,7 +43,6 @@ class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .apply(
                 RequestOptions().placeholder(R.drawable.ic_placeholder)
             )
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(photoView)
         actorNameView.text = item.name
     }

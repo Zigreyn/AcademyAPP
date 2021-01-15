@@ -64,7 +64,6 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .apply(
                 RequestOptions().placeholder(R.drawable.ic_placeholder)
             )
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(posterView)
 
         minAgeView.text = item.pgAge.toString()
